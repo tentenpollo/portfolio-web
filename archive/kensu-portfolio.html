@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>KENSŪ - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&family=Manrope:wght@400&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        error: "#ba1a1a",
+                        "primary-fixed-dim": "#cfbcff",
+                        "outline-variant": "#cbc4d2",
+                        "tertiary-container": "#c9a74d",
+                        "on-primary": "#ffffff",
+                        background: "#fdf7ff",
+                        "on-primary-container": "#e0d2ff",
+                        "on-secondary-container": "#645a7d",
+                        "on-surface-variant": "#494551",
+                        "surface-tint": "#6750a4",
+                        "secondary-fixed": "#e9ddff",
+                        surface: "#fdf7ff",
+                        "inverse-on-surface": "#f5eff7",
+                        tertiary: "#765b00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "primary-fixed": "#e9ddff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        outline: "#7a7582",
+                        secondary: "#63597c",
+                        "surface-container": "#f2ecf4",
+                        primary: "#4f378a",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-variant": "#e6e0e9",
+                        "secondary-container": "#e1d4fd",
+                        "surface-dim": "#ded8e0",
+                        "on-tertiary-container": "#503d00",
+                        "on-secondary-fixed": "#1f1635",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1d1b20",
+                        "on-error": "#ffffff",
+                        "on-background": "#1d1b20",
+                        "primary-container": "#6750a4",
+                        "surface-bright": "#fdf7ff",
+                        "surface-container-highest": "#e6e0e9",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "surface-container-low": "#f8f2fa",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#22005d",
+                        "tertiary-fixed": "#ffdf93",
+                        "inverse-surface": "#322f35",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "surface-container-high": "#ece6ee",
+                        "inverse-primary": "#cfbcff"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        "2xl": "1.5rem",
+                        "3xl": "2rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        unit: "8px",
+                        "container-max": "1200px",
+                        "bento-gap": "16px",
+                        gutter: "24px",
+                        margin: "40px"
+                    },
+                    fontFamily: {
+                        "h2": ["Inter"],
+                        "label-vertical": ["Space Grotesk"],
+                        "body-md": ["Manrope"],
+                        "h1": ["Inter"],
+                        "body-lg": ["Manrope"],
+                        "display-xl": ["Inter"]
+                    },
+                    fontSize: {
+                        "h2": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "label-vertical": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "500" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "h1": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "display-xl": ["80px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .texture-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.05"/></svg>');
+            opacity: 0.4;
+        }
+        .ink-gradient {
+            background: radial-gradient(circle at 50% 50%, theme('colors.surface-container-highest') 0%, theme('colors.background') 70%);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .mask-fade-right {
+            mask-image: linear-gradient(to right, black 90%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden relative selection:bg-primary-container selection:text-on-primary-container">
+    <div class="texture-overlay"></div>
+
+    <!-- TopNavBar Component -->
+    <nav class="fixed top-0 w-full z-50 bg-background/40 backdrop-blur-2xl transition-all duration-500">
+        <div class="w-full flex justify-between items-center px-6 md:px-12 lg:px-24 py-6">
+            <div class="text-xl font-bold tracking-widest text-on-surface">KENSŪ</div>
+            <div class="hidden md:flex gap-8 items-center text-sm font-medium text-on-surface-variant">
+                <a class="hover:text-on-surface transition-colors duration-300" href="#work">Work</a>
+                <a class="hover:text-on-surface transition-colors duration-300" href="#experience">Experience</a>
+                <a class="hover:text-on-surface transition-colors duration-300" href="#skills">Skills</a>
+                <a class="hover:text-on-surface transition-colors duration-300" href="#contact">Contact</a>
+                <a class="ml-4 px-5 py-2.5 bg-on-surface text-surface rounded-full text-xs font-semibold tracking-wide hover:bg-primary hover:text-on-primary transition-colors duration-300" href="#contact">Hire Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10 w-full flex flex-col pb-[160px]">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex flex-col justify-center items-center ink-gradient relative" id="hero">
+            <div class="text-center flex flex-col items-center gap-8 mt-24 px-6">
+                <h1 class="font-display-xl text-display-xl text-on-surface">KENSŪ</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl text-center">Full-Stack Developer &amp; Creative Technologist.</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="px-6 md:px-12 lg:px-24 pt-[160px] max-w-[1200px] mx-auto w-full" id="about">
+            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-outline mb-8">About Me</p>
+            <div class="max-w-4xl">
+                <h2 class="font-h1 text-h1 text-on-surface mb-8">Crafting digital tranquility through code.</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    I build digital experiences that respect the user's attention. Blending modern engineering practices with a minimalist design philosophy, I focus on performance, accessibility, and the subtle details that elevate a product from functional to memorable.
+                </p>
+            </div>
+        </section>
+
+        <!-- Work / Bento Grid -->
+        <section class="relative pt-[160px] w-full" id="work">
+            <div class="px-6 md:px-12 lg:px-24 mb-12 max-w-[1400px] mx-auto">
+                <p class="text-xs font-semibold tracking-[0.2em] uppercase text-outline mb-4">Portfolio</p>
+                <h2 class="font-h1 text-h1 text-on-surface">Selected Work</h2>
+            </div>
+            
+            <!-- Full Width Bento Grid -->
+            <div class="px-6 md:px-12 lg:px-24 w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[350px] md:auto-rows-[400px]">
+                    <!-- Project 1: Wide Card -->
+                    <article class="md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden group relative bg-surface-container-low cursor-pointer">
+                        <img alt="Aura Project" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADzxB_vukA9ysqtNsoiMdUHBMdljAO7RGBtQ-WWKyP0vSZkU7QpULMxlssOtmKOkQsa9CfUfQC6fzZWvp_0G9Jk9jY3zjarvqQ4ZJN8Y6RNDde5b0Xnvc5OjTmFwVqQehnxgLJ23M_LQ1NgR4YuwpD0d2lsK5J5MU-g_p2GuSHF_0HB4FIr1p-AbJsQTil_2PBaZF69d8v4xGKt3uRglPZiy8v9ELmWX7arfGx7r0Ywdw80yrNt7UKhMhppaJHq0JYjO7YLLaKNXM"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8 md:p-10">
+                            <h3 class="text-3xl md:text-4xl font-semibold text-white mb-2">Aura</h3>
+                            <p class="text-white/70 font-body-md">Meditation Platform</p>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: Tall Card -->
+                    <article class="md:row-span-2 rounded-3xl overflow-hidden group relative bg-surface-container-low cursor-pointer">
+                        <img alt="Generative Identity" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCagMfA72JIQWodZ-7I-kr9x28EQzUfARYD9i9E9eV7LJju9iV-kJmEOXUlGBeit2MIcuZIyqwaNf3Ft4bjZb3FeylJJp9s48sb4TQHSsrKYN64qGf_oULkr0zbt5j_jQc7E1AGKfTzefMmjtnqLHWxO7SkXJGd4DUBnUgcbc_R8CExJNKkH48nOg1NR3hgERAjf7JJyY1nB_2GChhRw9giKoP1TitMx_BiqB06jdiH61qikmnBbVBEza3oCq2WZBPGuRDgYYf6Ozc"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8 md:p-10">
+                            <h3 class="text-2xl md:text-3xl font-semibold text-white mb-2">Generative Identity</h3>
+                            <p class="text-white/70 font-body-md">Algorithmic Branding</p>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Square Card -->
+                    <article class="rounded-3xl overflow-hidden group relative bg-surface-container-low cursor-pointer">
+                        <img alt="FinTech Dashboard" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7QwxFZctOChHmDn6kmk1W6B6W-a3oEhVs3MmJNF8nl03zHoYnjxPkoWtjNyE4yVYQQjmU0qPXfwtEjxQg0EJ1c8ytzFnkBA80NrgWgwWLN8jSam7eOjrJ5_fg5kQ-Hgf0JJK44D4N7eVAObBO8wamCRnzVxOQ-bhZMvnUYCt40TbOucobI1i94VFU98B1XtcpL8dEDb7aYCvIZtnduTjNt09qBxlFuM_9K31tBrkgkAU2WiTOmLTKwsqnK5PA9tKEiEBdwybl8wk"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8">
+                            <h3 class="text-2xl font-semibold text-white mb-2">FinTech</h3>
+                            <p class="text-white/70 font-body-md">Data Dashboard</p>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: Square Card -->
+                    <article class="rounded-3xl overflow-hidden group relative bg-surface-container-low cursor-pointer">
+                        <div class="w-full h-full bg-surface-container flex items-center justify-center">
+                            <span class="material-symbols-outlined text-6xl text-outline-variant/40">architecture</span>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8">
+                            <h3 class="text-2xl font-semibold text-white mb-2">Eco-Design</h3>
+                            <p class="text-white/70 font-body-md">Sustainable Architecture</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section (Horizontal Scrolling) -->
+        <section class="relative pt-[160px] w-full overflow-hidden" id="experience">
+            <div class="px-6 md:px-12 lg:px-24 mb-12 max-w-[1400px] mx-auto flex justify-between items-end">
+                <div>
+                    <p class="text-xs font-semibold tracking-[0.2em] uppercase text-outline mb-4">Career Path</p>
+                    <h2 class="font-h1 text-h1 text-on-surface">Experience</h2>
+                </div>
+            </div>
+
+            <div class="relative w-full">
+                <!-- Fade indicator on right -->
+                <div class="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-background to-transparent pointer-events-none z-20 hidden md:block"></div>
+                
+                <div class="flex overflow-x-auto gap-6 px-6 md:px-12 lg:px-24 pb-12 snap-x snap-mandatory hide-scrollbar mask-fade-right">
+                    <!-- Card 1 -->
+                    <article class="flex-none w-[85vw] md:w-[480px] snap-start bg-surface-container-low rounded-3xl p-10 flex flex-col justify-between aspect-[4/3] group hover:bg-surface-container transition-colors duration-500">
+                        <div>
+                            <p class="text-sm font-medium text-outline mb-6 tracking-wide">2021 — PRESENT</p>
+                            <h3 class="text-3xl font-semibold text-on-surface leading-tight">Senior Creative Technologist</h3>
+                        </div>
+                        <div class="flex justify-between items-end">
+                            <p class="text-lg text-on-surface-variant">Design Agency Inc.</p>
+                            <span class="text-2xl text-outline group-hover:text-primary transition-colors duration-300">→</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="flex-none w-[85vw] md:w-[480px] snap-start bg-surface-container-low rounded-3xl p-10 flex flex-col justify-between aspect-[4/3] group hover:bg-surface-container transition-colors duration-500">
+                        <div>
+                            <p class="text-sm font-medium text-outline mb-6 tracking-wide">2018 — 2021</p>
+                            <h3 class="text-3xl font-semibold text-on-surface leading-tight">Full-Stack Developer</h3>
+                        </div>
+                        <div class="flex justify-between items-end">
+                            <p class="text-lg text-on-surface-variant">Tech Startup Co.</p>
+                            <span class="text-2xl text-outline group-hover:text-primary transition-colors duration-300">→</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="flex-none w-[85vw] md:w-[480px] snap-start bg-surface-container-low rounded-3xl p-10 flex flex-col justify-between aspect-[4/3] group hover:bg-surface-container transition-colors duration-500">
+                        <div>
+                            <p class="text-sm font-medium text-outline mb-6 tracking-wide">2016 — 2018</p>
+                            <h3 class="text-3xl font-semibold text-on-surface leading-tight">Frontend Engineer</h3>
+                        </div>
+                        <div class="flex justify-between items-end">
+                            <p class="text-lg text-on-surface-variant">Digital Studio</p>
+                            <span class="text-2xl text-outline group-hover:text-primary transition-colors duration-300">→</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="px-6 md:px-12 lg:px-24 pt-[160px] max-w-[1200px] mx-auto w-full" id="skills">
+            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-outline mb-12">Skills</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-0">
+                <div class="border-t border-outline-variant/20 py-6 flex flex-col md:flex-row md:justify-between md:items-center gap-2">
+                    <span class="text-xl text-on-surface font-medium">Frontend Engineering</span>
+                    <span class="text-sm text-outline">React, Vue, Next.js</span>
+                </div>
+                <div class="border-t border-outline-variant/20 py-6 flex flex-col md:flex-row md:justify-between md:items-center gap-2">
+                    <span class="text-xl text-on-surface font-medium">Backend & APIs</span>
+                    <span class="text-sm text-outline">TypeScript, Node.js, Python</span>
+                </div>
+                <div class="border-t border-outline-variant/20 py-6 flex flex-col md:flex-row md:justify-between md:items-center gap-2">
+                    <span class="text-xl text-on-surface font-medium">Creative Development</span>
+                    <span class="text-sm text-outline">Three.js, WebGL, Framer Motion</span>
+                </div>
+                <div class="border-t border-outline-variant/20 py-6 flex flex-col md:flex-row md:justify-between md:items-center gap-2">
+                    <span class="text-xl text-on-surface font-medium">Interface Design</span>
+                    <span class="text-sm text-outline">Tailwind CSS, CSS Modules</span>
+                </div>
+                <div class="border-t border-outline-variant/20 py-6 flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:col-span-2">
+                    <span class="text-xl text-on-surface font-medium">Product Strategy</span>
+                    <span class="text-sm text-outline">Figma, Design Systems</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="min-h-[60vh] flex flex-col justify-center items-center text-center pt-[160px] px-6" id="contact">
+            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-outline mb-8">Get in Touch</p>
+            <a class="group text-5xl md:text-7xl lg:text-8xl font-semibold text-on-surface hover:text-primary transition-colors duration-500" href="mailto:hello@kensu.design">
+                hello@kensu.design
+                <span class="inline-block transition-transform duration-500 group-hover:translate-x-4">→</span>
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="w-full py-16 px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-6 z-10 relative text-xs tracking-[0.2em] uppercase text-outline">
+        <div class="font-semibold text-on-surface">KENSŪ</div>
+        <div class="flex gap-8">
+            <a class="hover:text-on-surface transition-colors duration-300" href="#">Github</a>
+            <a class="hover:text-on-surface transition-colors duration-300" href="#">LinkedIn</a>
+            <a class="hover:text-on-surface transition-colors duration-300" href="#">Read.cv</a>
+        </div>
+        <div>© 2024</div>
+    </footer>
+</body>
+</html>
