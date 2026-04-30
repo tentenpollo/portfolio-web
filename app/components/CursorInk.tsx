@@ -115,7 +115,7 @@ export default function CursorInk() {
     }
 
     const resize = () => {
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.floor(window.innerWidth * dpr);
       canvas.height = Math.floor(window.innerHeight * dpr);
       canvas.style.width = `${window.innerWidth}px`;
@@ -220,8 +220,14 @@ export default function CursorInk() {
       return true;
     };
 
+    function startRenderLoop() {
+      if (frameRef.current === null) {
+        frameRef.current = window.requestAnimationFrame(render);
+      }
+    }
+
     const render = () => {
-      frameRef.current = window.requestAnimationFrame(render);
+      frameRef.current = null;
       const now = performance.now();
       context.clearRect(0, 0, window.innerWidth, window.innerHeight);
       strokesRef.current = strokesRef.current.filter((stroke) =>
@@ -238,6 +244,10 @@ export default function CursorInk() {
       if (strokesRef.current.length > MAX_STROKES) {
         strokesRef.current.splice(0, strokesRef.current.length - MAX_STROKES);
       }
+
+      if (strokesRef.current.length > 0) {
+        frameRef.current = window.requestAnimationFrame(render);
+      }
     };
 
     const handlePointerMove = (event: PointerEvent) => {
@@ -250,12 +260,14 @@ export default function CursorInk() {
 
       if (!prev) {
         createStroke(x, y, now, event.pressure || 0.72);
+        startRenderLoop();
         return;
       }
 
       const paused = now - prev.time > STROKE_GAP_MS;
       if (paused) {
         createStroke(x, y, now, event.pressure || 0.72);
+        startRenderLoop();
         return;
       }
 
@@ -277,6 +289,7 @@ export default function CursorInk() {
 
       if (!activeStrokeRef.current) {
         createStroke(x, y, now, pressure);
+        startRenderLoop();
         return;
       }
 
@@ -285,6 +298,7 @@ export default function CursorInk() {
       activeStrokeRef.current.path = buildStrokePath(
         activeStrokeRef.current.points,
       );
+      startRenderLoop();
     };
 
     const resetPointer = () => {
@@ -293,7 +307,6 @@ export default function CursorInk() {
     };
 
     resize();
-    render();
 
     window.addEventListener("resize", resize);
     window.addEventListener("pointermove", handlePointerMove);
@@ -306,6 +319,7 @@ export default function CursorInk() {
 
       if (frameRef.current !== null) {
         window.cancelAnimationFrame(frameRef.current);
+        frameRef.current = null;
       }
     };
   }, []);

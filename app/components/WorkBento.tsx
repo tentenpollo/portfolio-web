@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Parallax from "./Parallax";
@@ -160,13 +161,15 @@ function ProjectCard({ project, index, isHovered, isOtherHovered, onHover, onLea
       onMouseLeave={onLeave}
     >
       {/* Background Image — inner parallax handled by useEffect above */}
-      <img
+      <Image
         src={project.image}
         alt={project.title}
-        loading="lazy"
-        className={`bento-inner-img absolute inset-0 w-full h-full object-cover transition-all duration-1000 will-change-transform ${
+        fill
+        sizes={isLarge ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
+        className={`bento-inner-img object-cover transition-all duration-1000 will-change-transform ${
           isHovered ? "opacity-100" : "opacity-60"
         }`}
+        loading="lazy"
       />
 
       {/* Overlay */}

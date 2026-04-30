@@ -3,6 +3,7 @@ import ExperienceScroll from "./components/ExperienceScroll";
 import ScrollReveal from "./components/ScrollReveal";
 import Parallax from "./components/Parallax";
 import WorkBento from "./components/WorkBento";
+import SkillsGarden from "./components/SkillsGarden";
 
 export default function Home() {
   return (
@@ -57,65 +58,7 @@ export default function Home() {
 
         <ExperienceScroll />
 
-        <section className="px-6 md:px-12 lg:px-24 py-40 w-full" id="skills">
-          <ScrollReveal>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-outline mb-20">
-              Skills
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-0">
-              <Parallax speed={-0.08}>
-                <div className="border-t border-outline/20 py-8 flex flex-col md:flex-row md:justify-between md:items-center gap-2">
-                  <span className="text-2xl text-on-surface font-medium">
-                    Frontend Engineering
-                  </span>
-                  <span className="text-sm text-on-surface-variant">
-                    React, Vue, Next.js
-                  </span>
-                </div>
-              </Parallax>
-              <Parallax speed={0.06}>
-                <div className="border-t border-outline/20 py-8 flex flex-col md:flex-row md:justify-between md:items-center gap-2">
-                  <span className="text-2xl text-on-surface font-medium">
-                    Backend & APIs
-                  </span>
-                  <span className="text-sm text-on-surface-variant">
-                    TypeScript, Node.js, Python
-                  </span>
-                </div>
-              </Parallax>
-              <Parallax speed={-0.06}>
-                <div className="border-t border-outline/20 py-8 flex flex-col md:flex-row md:justify-between md:items-center gap-2">
-                  <span className="text-2xl text-on-surface font-medium">
-                    Creative Development
-                  </span>
-                  <span className="text-sm text-on-surface-variant">
-                    Three.js, WebGL, Framer Motion
-                  </span>
-                </div>
-              </Parallax>
-              <Parallax speed={0.08}>
-                <div className="border-t border-outline/20 py-8 flex flex-col md:flex-row md:justify-between md:items-center gap-2">
-                  <span className="text-2xl text-on-surface font-medium">
-                    Interface Design
-                  </span>
-                  <span className="text-sm text-on-surface-variant">
-                    Tailwind CSS, CSS Modules
-                  </span>
-                </div>
-              </Parallax>
-              <Parallax speed={-0.04} className="md:col-span-2">
-                <div className="border-t border-outline/20 py-8 flex flex-col md:flex-row md:justify-between md:items-center gap-2">
-                  <span className="text-2xl text-on-surface font-medium">
-                    Product Strategy
-                  </span>
-                  <span className="text-sm text-on-surface-variant">
-                    Figma, Design Systems
-                  </span>
-                </div>
-              </Parallax>
-            </div>
-          </ScrollReveal>
-        </section>
+        <SkillsGarden />
 
         <section
           className="min-h-[70vh] flex flex-col justify-center items-center text-center py-40 px-6"

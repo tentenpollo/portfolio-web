@@ -36,12 +36,18 @@ export default function ExperienceScroll() {
   const threadRef = useRef<SVGPathElement>(null);
   const sealRefs = useRef<(SVGGElement | null)[]>([]);
   const progressRef = useRef(0);
+  const activeIndexRef = useRef(0);
+  const threadLengthRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const container = containerRef.current;
     const track = trackRef.current;
     if (!container || !track) return;
+
+    if (threadRef.current) {
+      threadLengthRef.current = threadRef.current.getTotalLength();
+    }
 
     const lenis = (window as any).lenis as
       | {
@@ -108,7 +114,7 @@ export default function ExperienceScroll() {
 
             // Animate thread drawing
             if (threadRef.current) {
-              const totalLength = threadRef.current.getTotalLength();
+              const totalLength = threadLengthRef.current || threadRef.current.getTotalLength();
               threadRef.current.style.strokeDasharray = `${totalLength}`;
               threadRef.current.style.strokeDashoffset = `${
                 totalLength * (1 - progress)
@@ -131,7 +137,10 @@ export default function ExperienceScroll() {
               experiences.length - 1,
               Math.round(progress * (experiences.length - 1))
             );
-            setActiveIndex(nextIndex);
+            if (nextIndex !== activeIndexRef.current) {
+              activeIndexRef.current = nextIndex;
+              setActiveIndex(nextIndex);
+            }
           },
           onRefresh: (self) => {
             if (self.isActive) {
@@ -331,6 +340,9 @@ export default function ExperienceScroll() {
           ))}
         </div>
       </div>
+
+      {/* Bottom fade into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
 
       <div className="absolute bottom-12 left-0 w-full px-6 md:px-12 lg:px-24 z-10">
         <div className="relative mx-auto max-w-3xl">
