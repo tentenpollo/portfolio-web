@@ -76,7 +76,7 @@ export default function WorkBento() {
   }, []);
 
   return (
-    <div className="relative py-40 w-full" ref={sectionRef}>
+    <section className="relative py-40 w-full" ref={sectionRef} id="work">
       {/* Floating decorative index — extreme parallax layer */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <Parallax speed={-0.35} className="absolute top-20 left-[5%] lg:left-[8%]">
@@ -136,7 +136,7 @@ export default function WorkBento() {
           </Parallax>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
