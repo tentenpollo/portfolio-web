@@ -13,8 +13,8 @@ const spaceGrotesk = Space_Grotesk({
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 
 export const metadata: Metadata = {
-  title: "KENSŪ - Portfolio",
-  description: "Full-Stack Developer & Creative Technologist",
+  title: "Alessandro Belando - Portfolio",
+  description: "AI Software Engineer & Automation Specialist",
 };
 
 export default function RootLayout({

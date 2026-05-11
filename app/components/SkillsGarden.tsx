@@ -8,34 +8,34 @@ gsap.registerPlugin(ScrollTrigger);
 
 const skills = [
   {
-    title: "Frontend Engineering",
-    tags: ["React", "Vue", "Next.js", "TypeScript"],
-    description: "Crafting pixel-perfect interfaces with modern frameworks",
-    stoneColor: "#2a2a2a",
+    title: "AI & Machine Learning",
+    tags: ["Python", "TensorFlow", "PyTorch", "LLMs"],
+    description: "Building intelligent systems with modern AI frameworks and orchestration",
+    stoneColor: "#1a1a2e",
   },
   {
-    title: "Backend & APIs",
-    tags: ["Node.js", "Python", "GraphQL", "PostgreSQL"],
-    description: "Building robust systems that scale with grace",
-    stoneColor: "#3d3d3d",
+    title: "Full-Stack Development",
+    tags: ["Next.js", "React", "Node.js", "Tailwind CSS"],
+    description: "Crafting end-to-end web applications with modern TypeScript",
+    stoneColor: "#16213e",
   },
   {
-    title: "Creative Development",
-    tags: ["Three.js", "WebGL", "GSAP", "Framer Motion"],
-    description: "Where engineering meets artistic expression",
+    title: "Process Automation",
+    tags: ["ETL Pipelines", "SOPs", "Technical Specs", "Workflow Design"],
+    description: "Streamlining operations through documented, repeatable automation",
+    stoneColor: "#0f3460",
+  },
+  {
+    title: "Cloud & Infrastructure",
+    tags: ["AWS", "GCP", "Docker", "REST APIs"],
+    description: "Deploying scalable, containerized systems across cloud platforms",
     stoneColor: "#1c1c1c",
   },
   {
-    title: "Interface Design",
-    tags: ["Tailwind CSS", "Figma", "Design Systems", "Accessibility"],
-    description: "Designing with intention and inclusivity",
-    stoneColor: "#333333",
-  },
-  {
-    title: "Product Strategy",
-    tags: ["User Research", "Analytics", "A/B Testing", "Growth"],
-    description: "Turning insights into impactful features",
-    stoneColor: "#262626",
+    title: "Data Engineering",
+    tags: ["SQL", "MySQL", "PostgreSQL", "Redis"],
+    description: "Optimizing data pipelines, schemas, and database performance",
+    stoneColor: "#2a2a2a",
   },
 ];
 

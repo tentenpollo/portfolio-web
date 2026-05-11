@@ -19,14 +19,14 @@ export default function Home() {
         >
           <div className="text-center flex flex-col items-center gap-8">
             <h1 className="font-display-xl text-display-xl text-on-surface animate-fade-up">
-              KENSU
+              Alessandro Belando
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl text-center animate-fade-up animation-delay-100">
-              Full-Stack Developer & Creative Technologist.
+              AI Software Engineer & Automation Specialist.
             </p>
           </div>
           <div className="absolute right-6 md:right-12 lg:right-24 top-1/2 -translate-y-1/2 hidden lg:block text-xs tracking-[0.3em] uppercase text-on-surface-variant/40 [writing-mode:vertical-rl] animate-fade-up animation-delay-200">
-            Digital Zen Garden
+            AI & Automation
           </div>
         </section>
 
@@ -38,16 +38,17 @@ export default function Home() {
                   About Me
                 </p>
                 <h2 className="font-h1 text-h1 text-on-surface">
-                  Crafting digital tranquility through code.
+                  Turning complexity into clarity through automation and AI.
                 </h2>
               </div>
               <div className="md:col-span-7 md:col-start-6 pt-2">
                 <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                  I build digital experiences that respect the user&apos;s
-                  attention. Blending modern engineering practices with a
-                  minimalist design philosophy, I focus on performance,
-                  accessibility, and the subtle details that elevate a product
-                  from functional to memorable.
+                  Aspiring AI Software Engineer experienced in building internal
+                  automation tools and streamlining workflows using Python,
+                  Next.js, and modern development tools. Skilled at translating
+                  business requirements into technical specifications, process
+                  maps, and SOPs. Fast learner with hands-on experience in AI/ML
+                  integration and software development.
                 </p>
               </div>
             </div>
@@ -71,9 +72,9 @@ export default function Home() {
             <Parallax speed={-0.1} scale={0.92}>
               <a
                 className="group inline-block text-6xl md:text-7xl lg:text-8xl font-semibold text-on-surface hover:text-primary transition-colors duration-700"
-                href="mailto:hello@kensu.design"
+                href="mailto:tenten_belando@outlook.com"
               >
-                hello@kensu.design
+                tenten_belando@outlook.com
                 <span className="inline-block transition-transform duration-700 group-hover:translate-x-4">
                   -&gt;
                 </span>
@@ -84,7 +85,7 @@ export default function Home() {
       </main>
 
       <footer className="w-full py-12 px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-6 text-xs tracking-[0.2em] uppercase text-on-surface-variant/60">
-        <div className="font-semibold text-on-surface">KENSU</div>
+        <div className="font-semibold text-on-surface">Alessandro Belando</div>
         <div className="flex gap-8">
           <a
             className="hover:text-on-surface transition-colors duration-500"
@@ -94,18 +95,12 @@ export default function Home() {
           </a>
           <a
             className="hover:text-on-surface transition-colors duration-500"
-            href="#"
+            href="https://linkedin.com/in/alessandro-belando1010"
           >
             LinkedIn
           </a>
-          <a
-            className="hover:text-on-surface transition-colors duration-500"
-            href="#"
-          >
-            Read.cv
-          </a>
         </div>
-        <div>(c) 2024</div>
+        <div>(c) 2026</div>
       </footer>
     </>
   );

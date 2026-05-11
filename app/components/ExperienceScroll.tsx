@@ -8,25 +8,25 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
-    date: "2021 - PRESENT",
-    title: "Senior Creative Technologist",
-    company: "Design Agency Inc.",
+    date: "Nov 2025 - Present",
+    title: "AI Automation Engineer",
+    company: "AgentGenius.ai",
     description:
-      "Leading the intersection of design and engineering. Built generative brand systems using WebGL and procedural shaders. Directed a team of four developers, establishing internal tooling that cut production time by 40%.",
+      "Partnered with stakeholders to map manual workflows, identify automation opportunities, and design technical specs and SOPs for internal tooling. Deployed 5 systems across internal and client-facing infrastructures. Built Python APIs and LLM orchestration layers (OpenAI/Anthropic) to automate enterprise workflows.",
   },
   {
-    date: "2018 - 2021",
-    title: "Full-Stack Developer",
-    company: "Tech Startup Co.",
+    date: "Feb 2025 - Oct 2025",
+    title: "Contract Software Engineer",
+    company: "Tev Tech & GRL PWR",
     description:
-      "Owned the frontend architecture for a B2B analytics platform serving 50k+ daily users. Migrated the legacy codebase to Next.js, improving Lighthouse scores from 42 to 96. Implemented real-time data pipelines with WebSockets.",
+      "Built a high-availability B2B workflow SaaS using Next.js and Prisma, achieving 99.9% uptime for concurrent enterprise users. Refactored legacy SQL schemas and implemented composite indexing, reducing query execution time by 45%. Deployed containerized microservices using Docker.",
   },
   {
-    date: "2016 - 2018",
-    title: "Frontend Engineer",
-    company: "Digital Studio",
+    date: "Feb 2025 - Apr 2025",
+    title: "Process Automation Engineer (Intern)",
+    company: "Massive Integrated Tech Solutions",
     description:
-      "Crafted immersive campaign sites for luxury and fashion brands. Specialized in scroll-driven storytelling using GSAP and smooth-scroll libraries. Collaborated closely with motion designers to translate After Effects compositions into performant web animations.",
+      "Documented manual IT ticketing processes and assisted in designing workflow automation solutions. Built Python ETL scripts to support data migration efforts and wrote documentation for data validation steps. Created SOPs and technical documentation to help operations teams understand automated systems.",
   },
 ];
 

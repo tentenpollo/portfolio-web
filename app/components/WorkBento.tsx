@@ -10,28 +10,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "Aura",
-    category: "Meditation Platform",
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=800&fit=crop&q=80",
+    title: "Agricultural Vision Model",
+    category: "AI / Computer Vision",
+    year: "2025",
+    image: "https://images.unsplash.com/photo-1523741543316-b31d8de0af52?w=800&h=800&fit=crop&q=80",
     size: "large",
-    description: "A calm digital space for breathwork and mindfulness.",
+    description: "Trained a U-Net segmentation model on 15k images, achieving 92% classification accuracy for agricultural quality control. Engineered custom backbone with Stochastic Feature Pyramids and Dynamic Regularization.",
   },
   {
-    title: "Generative Identity",
-    category: "Algorithmic Branding",
-    year: "2023",
-    image: "https://images.unsplash.com/photo-1549490349-8643362247b5?w=600&h=600&fit=crop&q=80",
+    title: "Nutritional Optimizer",
+    category: "Linear Programming / AI",
+    year: "2025",
+    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&h=600&fit=crop&q=80",
     size: "medium",
-    description: "Procedural visual systems for dynamic brands.",
+    description: "Implemented a linear programming algorithm to solve multi-constraint optimization, balancing 20+ nutritional variables against cost functions using local quantized LLMs.",
   },
   {
-    title: "FinTech",
-    category: "Data Dashboard",
-    year: "2022",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop&q=80",
+    title: "GeoStride",
+    category: "Spatial Computing",
+    year: "2025",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=600&fit=crop&q=80",
     size: "medium",
-    description: "Real-time analytics with quiet confidence.",
+    description: "Architected a graph-based navigation engine using A* search with custom heuristics. Engineered a spatial data pipeline processing 100k+ nodes and edges with R-tree indexing.",
   },
 ];
 

@@ -38,7 +38,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/40 backdrop-blur-2xl transition-all duration-500">
       <div className="w-full flex justify-between items-center px-6 md:px-12 lg:px-24 py-5">
-        <div className="text-lg font-bold tracking-[0.2em] text-on-surface">KENSŪ</div>
+        <div className="text-lg font-bold tracking-[0.2em] text-on-surface">ALESSANDRO</div>
         <div className="hidden md:flex gap-10 items-center text-sm font-medium">
           {navItems.map((item) => (
             <a
@@ -57,7 +57,7 @@ export default function Navbar() {
             className="ml-6 px-5 py-2.5 bg-on-surface text-surface rounded-full text-xs font-semibold tracking-wide hover:bg-primary hover:text-on-primary transition-colors duration-500"
             href="#contact"
           >
-            Hire Me
+            Contact
           </a>
         </div>
       </div>
