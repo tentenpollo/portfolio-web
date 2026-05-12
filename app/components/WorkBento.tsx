@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Parallax from "./Parallax";
+import ProjectModal from "./ProjectModal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +17,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1523741543316-b31d8de0af52?w=800&h=800&fit=crop&q=80",
     size: "large",
     description: "Trained a U-Net segmentation model on 15k images, achieving 92% classification accuracy for agricultural quality control. Engineered custom backbone with Stochastic Feature Pyramids and Dynamic Regularization.",
+    link: "https://github.com/tentenpollo/SPEAR-UNET",
   },
   {
     title: "Nutritional Optimizer",
@@ -24,6 +26,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&h=600&fit=crop&q=80",
     size: "medium",
     description: "Implemented a linear programming algorithm to solve multi-constraint optimization, balancing 20+ nutritional variables against cost functions using local quantized LLMs.",
+    link: null,
   },
   {
     title: "GeoStride",
@@ -32,12 +35,18 @@ const projects = [
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=600&fit=crop&q=80",
     size: "medium",
     description: "Architected a graph-based navigation engine using A* search with custom heuristics. Engineered a spatial data pipeline processing 100k+ nodes and edges with R-tree indexing.",
+    link: "https://github.com/tentenpollo/geostride",
   },
 ];
 
 export default function WorkBento() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [selectedProject, setSelectedProject] = useState<{
+    project: (typeof projects)[0];
+    sourceRect: DOMRect;
+  } | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLElement | null)[]>([]);
 
   // Inner image parallax for each card
   useEffect(() => {
@@ -75,6 +84,13 @@ export default function WorkBento() {
     };
   }, []);
 
+  const handleProjectClick = (index: number) => {
+    const card = cardRefs.current[index];
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    setSelectedProject({ project: projects[index], sourceRect: rect });
+  };
+
   return (
     <section className="relative py-40 w-full" ref={sectionRef} id="work">
       {/* Floating decorative index — extreme parallax layer */}
@@ -108,6 +124,8 @@ export default function WorkBento() {
               isOtherHovered={hoveredIndex !== null && hoveredIndex !== 0}
               onHover={() => setHoveredIndex(0)}
               onLeave={() => setHoveredIndex(null)}
+              cardRef={(el) => { cardRefs.current[0] = el; }}
+              onClick={() => handleProjectClick(0)}
             />
           </Parallax>
 
@@ -120,6 +138,8 @@ export default function WorkBento() {
               isOtherHovered={hoveredIndex !== null && hoveredIndex !== 1}
               onHover={() => setHoveredIndex(1)}
               onLeave={() => setHoveredIndex(null)}
+              cardRef={(el) => { cardRefs.current[1] = el; }}
+              onClick={() => handleProjectClick(1)}
             />
           </Parallax>
 
@@ -132,10 +152,20 @@ export default function WorkBento() {
               isOtherHovered={hoveredIndex !== null && hoveredIndex !== 2}
               onHover={() => setHoveredIndex(2)}
               onLeave={() => setHoveredIndex(null)}
+              cardRef={(el) => { cardRefs.current[2] = el; }}
+              onClick={() => handleProjectClick(2)}
             />
           </Parallax>
         </div>
       </div>
+
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject.project}
+          sourceRect={selectedProject.sourceRect}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   );
 }
@@ -147,18 +177,22 @@ interface ProjectCardProps {
   isOtherHovered: boolean;
   onHover: () => void;
   onLeave: () => void;
+  cardRef: (el: HTMLElement | null) => void;
+  onClick: () => void;
 }
 
-function ProjectCard({ project, index, isHovered, isOtherHovered, onHover, onLeave }: ProjectCardProps) {
+function ProjectCard({ project, index, isHovered, isOtherHovered, onHover, onLeave, cardRef, onClick }: ProjectCardProps) {
   const isLarge = project.size === "large";
 
   return (
     <article
+      ref={cardRef}
       className={`group relative w-full h-full overflow-hidden cursor-pointer bg-surface-container border border-outline/5 transition-all duration-700 ${
         isOtherHovered ? "opacity-40 scale-[0.97]" : "opacity-100"
       }`}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
+      onClick={onClick}
     >
       {/* Background Image — inner parallax handled by useEffect above */}
       <Image
