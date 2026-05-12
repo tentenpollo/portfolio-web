@@ -89,7 +89,7 @@ export default function Home() {
         <div className="flex gap-8">
           <a
             className="hover:text-on-surface transition-colors duration-500"
-            href="#"
+            href="https://github.com/tentenpollo"
           >
             Github
           </a>
